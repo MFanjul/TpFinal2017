@@ -3,7 +3,8 @@
 namespace TpFinal;
 
 class Tarjeta {
-    protected $saldo; 
+    protected $saldo;
+    
     protected $dni;
 
     
