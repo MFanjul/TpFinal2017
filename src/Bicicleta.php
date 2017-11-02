@@ -7,5 +7,7 @@ class Bicicleta {
     public function __construct ($id) {
         $this->id = $id;
     }
-   
+    public function mostrarId(){
+    return $this->id;
+  }
 }
