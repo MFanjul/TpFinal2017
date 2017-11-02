@@ -108,7 +108,7 @@ class TestTarjeta extends TestCase {
 		$Tar->pagar("Colectivo",13.45, 14.11,$colectivo120);
 		$Tar->pagar("Colectivo",13.45, 14.11,$colectivo120);
 		$Tar->pagar("Colectivo",13.45, 14.11,$colectivo120);
-		$this->assertEquals( $Tar->vplus, 1 );
+		$this->assertEquals( $Tar->vplus(), 1 );
 	
 	
 	}
@@ -123,7 +123,25 @@ class TestTarjeta extends TestCase {
 		$Tarta->pagar("Colectivo",13.05, 14.11,$colectivo359);
 		$Tarta->pagar("Colectivo",13.35, 14.11,$colectivo146);
 		$Tarta->pagar("Colectivo",13.35, 14.11,$colectivo146);
-		$this->assertEquals( $Tarta->vplus, 2 );
+		$this->assertEquals( $Tarta->vplus(), 2 );
 }
 	    
+	public function testpagarplus(){
+	
+		$Tart = new Tarjeta(23567890, "Normal");
+		$Tart->recargar(10);
+		$negra101 = new Colectivo( "101 negra" );
+		$Tarta->pagar("Colectivo",13.05, 14.11,$negra101);
+		$Tarta->pagar("Colectivo",13.05, 14.11,$negra101);
+		$Tart->recargar(10);
+		$this->assertEquals( $Tarta->vplus(), 0 );
+		$this->assertEquals( $Tarta->saldo(), ((10-9.70)+10-9.70) );
+	
+	
+	
+	
+	
+	
+	
+	
 }    
