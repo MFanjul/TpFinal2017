@@ -50,7 +50,7 @@ class Tarjeta {
                     }
                 }
                 else{
-               echo "Seleccione un monto valido para cargar saldo";
+               return "Seleccione un monto valido para cargar saldo";
                 }
             }
         }
@@ -100,7 +100,7 @@ class Tarjeta {
     }
     public function plus(){
         if($this->vplus == 2){
-        echo "Su saldo es insuficiente para viajar";
+        return "Su saldo es insuficiente para viajar";
         }
         else{
         $this->vplus = $this->vplus + 1;
@@ -131,11 +131,11 @@ class Tarjeta {
 	    $this->saldo = $this->saldo - 14.55;
 	    }
 		    else{
-		    print "saldo insuficiente";
+		    return "saldo insuficiente";
 		    }
 	    }
 	    else{
-	    print "retire su bicicleta";
+	    return "retire su bicicleta";
 	    }
 		    
     }
