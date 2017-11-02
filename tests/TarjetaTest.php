@@ -117,10 +117,10 @@ class TestTarjeta extends TestCase {
 	
 		$Tarta = new Tarjeta(23567890, "MedioBoleto");
 		$Tarta->recargar(10);
-		$colectivo35/9 = new Colectivo( "35/9" );
+		$colectivo359 = new Colectivo( "35/9" );
 		$colectivo146 = new Colectivo( "146" );
-		$Tarta->pagar("Colectivo",13.05, 14.11,$colectivo35/9);
-		$Tarta->pagar("Colectivo",13.05, 14.11,$colectivo35/9);
+		$Tarta->pagar("Colectivo",13.05, 14.11,$colectivo359);
+		$Tarta->pagar("Colectivo",13.05, 14.11,$colectivo359);
 		$Tarta->pagar("Colectivo",13.35, 14.11,$colectivo146);
 		$Tarta->pagar("Colectivo",13.35, 14.11,$colectivo146);
 		$this->assertEquals( $Tarta->vplus, 2 );
