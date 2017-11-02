@@ -8,7 +8,7 @@ public function __construct($linea) {
 $this->linea=$linea;
 }
 
-  public function mostrarId(){
-    return $this->id;
+  public function mostrarlinea(){
+    return $this->linea;
   }
 }
