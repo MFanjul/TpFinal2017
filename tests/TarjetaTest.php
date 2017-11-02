@@ -126,4 +126,4 @@ class TestTarjeta extends TestCase {
 		$this->assertEquals( $Tarta->vplus, 2 );
 }
 	    
-	    
+}    
