@@ -8,6 +8,6 @@ class Bicicleta {
         $this->id = $id;
     }
     public function mostrarId(){
-    return $this->id;
-  }
+        return $this->id;
+    }
 }
