@@ -1,5 +1,6 @@
 <?php
 namespace TpFinal;
+
 class Tarjeta {
     protected $saldo; 
     protected $dni;
@@ -50,7 +51,7 @@ class Tarjeta {
                     }
                 }
                 else{
-               return "Seleccione un monto valido para cargar saldo";
+                return "Seleccione un monto valido para cargar saldo";
                 }
             }
         }
@@ -59,84 +60,79 @@ class Tarjeta {
         $this->horaviaje = $hora;
 	$this->diaviaje = $dia;
 	$this->lineas = $linea;
-		if($transporte == "Colectivo"){
-			if($this->diaviaje == $this->diaant && ($this->horaviaje-$this->horaant)<0.30 && $this->lineas != $this->lineasant){
-			$this->trasbordo();
-			}
-			else{
-	if( $this->tipo == "Normal" ){
-                $this->normal();
-        	}
-        if( $this->tipo == "MedioBoleto" ){
-                $this->medio(); 
-       }   
+	if($transporte == "Colectivo"){
+	    if($this->diaviaje == $this->diaant && ($this->horaviaje-$this->horaant)<0.30 && $this->lineas != $this->lineasant){
+                $this->trasbordo();
 		}
-			
-		}	
+	    else{
+	        if( $this->tipo == "Normal" ){
+                    $this->normal();
+        }
+        if( $this->tipo == "MedioBoleto" ){
+            $this->medio(); 
+        }   
+	    }
+        }	
         if($this->tipo == "bici"){
-		        $this->bici();
-    	}
-			
+	    $this->bici();
+    	}		
 	    $this->horaant = $this->horaviaje;
 	    $this->diaant = $this->diaviaje;
 	    $this->lineasant = $this->lineas;
-    
     }
     public function normal(){
-    if($this->saldo < 9.70){
-        $this->plus();
+        if($this->saldo < 9.70){
+            $this->plus();
         }
         else{
-        $this->saldo = $this->saldo - 9.70;
+            $this->saldo = $this->saldo - 9.70;
         }
     }
     public function medio(){
         if($this->saldo < 4.85){
-        $this->plus();
+            $this->plus();
         }
         else{
-        $this->saldo = $this->saldo - 4.85;
+            $this->saldo = $this->saldo - 4.85;
         }
     }
     public function plus(){
         if($this->vplus == 2){
-        return "Su saldo es insuficiente para viajar";
+            return "Su saldo es insuficiente para viajar";
         }
         else{
-        $this->vplus = $this->vplus + 1;
+            $this->vplus = $this->vplus + 1;
         }
     }
     public function trasbordo(){
         if($this->tipo == "MedioBoleto"){
-	if($this->saldo < 1.60){
-	$this->plus();
+	    if($this->saldo < 1.60){
+	        $this->plus();
 	 }
 		else{
-		$this->saldo = $this->saldo - 1.60;
+		    $this->saldo = $this->saldo - 1.60;
 		}
 	}
 	    else{
-	    if($this->saldo < 3.20){
-	$this->plus();
+	        if($this->saldo < 3.20){
+	            $this->plus();
 	 }
 		else{
-		$this->saldo = $this->saldo - 3.20;
+		    $this->saldo = $this->saldo - 3.20;
 		}
 	    }
     }
-	
     public function bici(){
 	    if($this->diaviaje != $this->diaant){
-	    if($this->saldo > 14.55){
-	    $this->saldo = $this->saldo - 14.55;
+	        if($this->saldo > 14.55){
+	            $this->saldo = $this->saldo - 14.55;
 	    }
-		    else{
+		else{
 		    return "saldo insuficiente";
 		    }
 	    }
 	    else{
-	    return "retire su bicicleta";
-	    }
-		    
+	        return "retire su bicicleta";
+	    }	    
     }
 }
